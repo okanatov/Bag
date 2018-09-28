@@ -44,6 +44,13 @@ class Bag:
 
         return result
 
+    def is_edge(self, vertex, adj):
+        for idx, vertices in enumerate(self._vertices):
+            if idx is vertex and adj in vertices:
+                return True
+
+        return False
+
     def _try_or_create(self, index):
         try:
             self._vertices[index]

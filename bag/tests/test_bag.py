@@ -49,3 +49,13 @@ class TestBag(unittest.TestCase):
         next(iterator)
 
         self.assertRaises(StopIteration, next, iterator)
+
+    def test_checks_whether_edge_present(self):
+        graph = bag.Bag()
+        graph.add_edge(0, 1)
+        graph.add_edge(0, 2)
+
+        self.assertTrue(graph.is_edge(0, 2))
+        self.assertFalse(graph.is_edge(1, 2))
+        self.assertFalse(graph.is_edge(0, 3))
+        self.assertFalse(graph.is_edge(0, 0))
