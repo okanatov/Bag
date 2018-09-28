@@ -28,7 +28,7 @@ class TestBag(unittest.TestCase):
 
         self.assertEqual(len(graph), 3)
 
-    def test_(self):
+    def test_iterates(self):
         graph = bag.Bag()
         graph.add_edge(0, 1)
         graph.add_edge(0, 2)
@@ -39,3 +39,13 @@ class TestBag(unittest.TestCase):
         self.assertEqual(str(next(iterator)), str([1, 2]))
         self.assertEqual(str(next(iterator)), str([2]))
         self.assertEqual(str(next(iterator)), str([]))
+
+    def test_raises_stop_iteration(self):
+        graph = bag.Bag()
+        graph.add_edge(0, 1)
+
+        iterator = iter(graph)
+        next(iterator)
+        next(iterator)
+
+        self.assertRaises(StopIteration, next, iterator)

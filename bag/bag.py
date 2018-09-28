@@ -16,10 +16,10 @@ class Bag:
     def __init__(self):
         self._vertices = []
 
-    def add_edge(self, f, t):
-        self._try_or_create(f)
-        self._vertices[f].append(t)
-        self._try_or_create(t)
+    def add_edge(self, vertex, adj):
+        self._try_or_create(vertex)
+        self._vertices[vertex].append(adj)
+        self._try_or_create(adj)
 
     def __str__(self):
         string_representation = ""
