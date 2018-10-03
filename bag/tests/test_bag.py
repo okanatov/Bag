@@ -12,6 +12,14 @@ class TestBag(unittest.TestCase):
 
         self.assertEqual(str(graph), "0: 1; 1: ")
 
+    def test_adds_edge_with_gap(self):
+        graph = bag.Bag()
+        graph.add_edge(0, 4)
+        graph.add_edge(1, 2)
+        graph.add_edge(0, 6)
+
+        self.assertEqual(str(graph), "0: 4, 6; 1: 2; 2: ; 3: ; 4: ; 5: ; 6: ")
+
     def test_adds_2_edges(self):
         graph = bag.Bag()
         graph.add_edge(0, 1)

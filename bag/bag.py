@@ -19,7 +19,8 @@ class Bag:
     def add_edge(self, vertex, adj):
         self._try_or_create(vertex)
         self._vertices[vertex].append(adj)
-        self._try_or_create(adj)
+        for elem in range(vertex, adj):
+            self._try_or_create(adj)
 
     def __str__(self):
         string_representation = ""
